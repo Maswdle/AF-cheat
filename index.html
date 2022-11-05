@@ -1,10 +1,90 @@
 <!DOCTYPE html>
 <html>
- <head>
- <meta charset='utf-8'>
- <title>Airfly</title>
- </head>
- <body>
- <h1>至少在</h1>
- </body>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Airfly存档生成</title>
+</head>
+
+<body>
+    <h1 align="center">Airfly存档生成器</h1>
+    <p align="center">至少在2022/11/5时是有效的,失效了...<del>就不管了</del></p>
+    <style>
+        input {
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            padding-left: 5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        button {
+            background-color: #f54640;
+            color: white;
+            width: 70px;
+            height: 45px;
+            border: 0;
+            font-size: 16px;
+            box-sizing: content-box;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #a54b4a;
+        }
+    </style>
+    <div align="center">
+        <span>货币数量:</span>
+        <input type="number" placeholder="114514">
+        <br>
+        <br>
+        <span>飞行距离:</span>
+        <input type="number" placeholder="114514">
+        <br>
+        <br>
+        <span>签到日期:</span>
+        <input type="number" placeholder="114514">
+        <br>
+        <br>
+        <span>赛季积分:</span>
+        <input type="number" placeholder="114514">
+        <br>
+        <br>
+        <span>是否解锁所有模式:</span>
+        <input type="radio" name="model" checked> 是
+        <input type="radio" name="model"> 否
+        <br>
+        <br>
+        <span>是否通过新手考核:</span>
+        <input type="radio" name="exam" checked> 是
+        <input type="radio" name="exam"> 否
+        <br>
+        <br>
+        <br>
+        <button type="button" id="juexianbei">
+            立即生成
+        </button>
+        <br>
+        <br>
+        <textarea id="copy">存档码在这</textarea>
+        <br>
+        <input type="button" onclick="copyLink();" value="点击复制"></input>
+        <!-- 你是一个一个一个 -->
+
+    </div>
+
+
+</body>
+
 </html>
