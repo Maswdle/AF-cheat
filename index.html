@@ -44,32 +44,41 @@
             background-color: #a54b4a;
         }
     </style>
+    <style type="text/css">
+        .wrapper {
+            position: relative;
+        }
+
+        #input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: -10;
+        }
+    </style>
     <div align="center">
         <span>货币数量:</span>
-        <input type="number" placeholder="114514">
+        <input type="number" placeholder="114514" id="qian">
         <br>
         <br>
         <span>飞行距离:</span>
-        <input type="number" placeholder="114514">
+        <input type="number" placeholder="114514" id="juli">
         <br>
         <br>
         <span>签到日期:</span>
-        <input type="number" placeholder="114514">
+        <input type="number" placeholder="114514" id="qiandao">
         <br>
         <br>
         <span>赛季积分:</span>
-        <input type="number" placeholder="114514">
+        <input type="number" placeholder="114514" id="jifen">
         <br>
         <br>
         <span>是否解锁所有模式:</span>
-        <input type="radio" name="model" checked> 是
-        <input type="radio" name="model"> 否
+        <input type="radio" name="model" checked id="yesyes"> 是
+        <input type="radio" name="model" id="no"> 否
         <br>
-        <br>
-        <span>是否通过新手考核:</span>
-        <input type="radio" name="exam" checked> 是
-        <input type="radio" name="exam"> 否
-        <br>
+
         <br>
         <br>
         <button type="button" id="juexianbei">
@@ -79,11 +88,21 @@
         <br>
         <textarea id="copy">存档码在这</textarea>
         <br>
-        <input type="button" onclick="copyLink();" value="点击复制"></input>
+        <input type="button" onclick="copyText();" value="点击复制"></input>
         <!-- 你是一个一个一个 -->
+        
 
     </div>
-
+    <script type="text/javascript">
+        function copyText() {
+            var text = document.getElementById("copy");
+            
+            text.select(); // 选中文本
+            document.execCommand("copy"); // 执行浏览器复制命令
+            alert("复制成功");
+        }
+    </script>
+    <script src="obmain.js" type="text/javascript"></script>
 
 </body>
 
