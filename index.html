@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+
 <html>
 
 <head>
@@ -6,7 +9,7 @@
     <title>Airfly存档生成</title>
 </head>
 
-<body>
+<body bgcolor="#fffbf0">
     <h1 align="center">Airfly存档生成器</h1>
     <p align="center">至少在2022/11/5时是有效的,失效了...<del>就不管了</del></p>
     <style>
@@ -88,15 +91,16 @@
         <br>
         <textarea id="copy">存档码在这</textarea>
         <br>
-        <input type="button" onclick="copyText();" value="点击复制"></input>
+        <br>
+        <button onclick="copyText();">点击复制</button>
         <!-- 你是一个一个一个 -->
-        
+
 
     </div>
     <script type="text/javascript">
         function copyText() {
             var text = document.getElementById("copy");
-            
+
             text.select(); // 选中文本
             document.execCommand("copy"); // 执行浏览器复制命令
             alert("复制成功");
