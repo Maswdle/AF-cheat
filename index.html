@@ -14,6 +14,8 @@
             --other-msg-text: black;
             --header-bg: #f8f9fa;
             --border-color: #dddfe2;
+            --sidebar-bg: #f5f5f5;
+            --sidebar-width: 250px;
         }
 
         * {
@@ -38,11 +40,71 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .file-list {
+            list-style: none;
+        }
+
+        .file-item {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .file-item.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .file-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-info {
+            font-size: 12px;
+            color: #6c757d;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
         .upload-section {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             background-color: white;
-            margin: 20px;
+            margin: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -53,17 +115,16 @@
             border: 1px solid var(--border-color);
             border-radius: 4px;
             width: 100%;
-            max-width: 400px;
         }
 
         .btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s;
         }
 
@@ -81,12 +142,49 @@
             background-color: rgba(0, 132, 255, 0.1);
         }
 
+        .search-container {
+            padding: 10px 15px;
+            background-color: white;
+            margin: 0 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-btn {
+            background-color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
         .chat-container {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 15px;
             background-color: white;
-            margin: 0 20px 20px;
+            margin: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -106,7 +204,7 @@
         }
 
         .message-bubble {
-            max-width: 70%;
+            max-width: 80%;
             padding: 10px 15px;
             border-radius: 18px;
             margin-bottom: 5px;
@@ -131,46 +229,11 @@
             margin: 0 5px;
         }
 
-        .search-container {
-            padding: 10px 20px;
-            background-color: white;
-            margin: 0 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .filter-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-btn {
-            background-color: var(--secondary-color);
-            border: 1px solid var(--border-color);
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
         .empty-state {
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             color: #65676b;
+            font-size: 14px;
         }
 
         .user-info {
@@ -180,22 +243,23 @@
         }
 
         .avatar {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background-color: #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
+            margin-right: 8px;
             font-weight: bold;
+            font-size: 14px;
         }
 
         .perspective-control {
             margin-left: auto;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .perspective-label {
@@ -221,7 +285,7 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 90%;
             max-width: 800px;
             border-radius: 8px;
             position: relative;
@@ -285,7 +349,26 @@
             background-color: #45a049;
         }
 
+        .folder-info {
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
         @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                max-height: 200px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
             .header, .upload-section, .chat-container, .search-container {
                 margin: 10px;
             }
@@ -302,11 +385,19 @@
             .perspective-control {
                 margin-left: 0;
                 margin-top: 10px;
+                width: 100%;
+                justify-content: center;
             }
 
             .modal-content {
                 width: 95%;
                 margin: 10% auto;
+                padding: 15px;
+            }
+            
+            .btn {
+                padding: 10px;
+                font-size: 16px;
             }
         }
     </style>
@@ -316,34 +407,49 @@
             <h1>聊天记录查看器</h1>
         </div>
 
-        <div class="upload-section">
-            <h2>上传聊天记录文件</h2>
-            <input type="file" id="fileInput" class="file-input" accept=".json">
-            <div style="margin-top: 10px;">
-                <button id="uploadBtn" class="btn">加载聊天记录</button>
-                <button id="howToBtn" class="btn btn-outline">如何获取记录</button>
+        <div class="main-container">
+            <div class="sidebar" id="sidebar">
+                <div class="folder-info" id="folderInfo">未选择文件夹</div>
+                <ul class="file-list" id="fileList">
+                    <li class="empty-state">请选择聊天记录文件夹</li>
+                </ul>
             </div>
-        </div>
 
-        <div class="search-container">
-            <input type="text" id="searchInput" class="search-input"
-                placeholder="搜索消息内容...">
-            <div class="filter-options">
-                <button class="filter-btn active" data-filter="all">全部</button>
-                <button class="filter-btn" data-filter="self">仅自己</button>
-                <button class="filter-btn" data-filter="other">仅对方</button>
-
-                <div class="perspective-control">
-                    <span class="perspective-label">视角:</span>
-                    <button id="switchPerspectiveBtn"
-                        class="btn btn-outline">切换自己/对方</button>
+            <div class="content-area">
+                <div class="upload-section">
+                    <h2>加载聊天记录</h2>
+                    <input type="file" id="fileInput" class="file-input"
+                        accept=".json" multiple webkitdirectory>
+                    <div style="margin-top: 10px;">
+                        <button id="howToBtn"
+                            class="btn btn-outline">如何获取记录</button>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="chat-container" id="chatContainer">
-            <div class="empty-state">
-                <p>请上传JSON格式的聊天记录文件</p>
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="搜索消息内容...">
+                    <div class="filter-options">
+                        <button class="filter-btn active"
+                            data-filter="all">全部</button>
+                        <button class="filter-btn"
+                            data-filter="self">仅自己</button>
+                        <button class="filter-btn"
+                            data-filter="other">仅对方</button>
+
+                        <div class="perspective-control">
+                            <span class="perspective-label">视角:</span>
+                            <button id="switchPerspectiveBtn"
+                                class="btn btn-outline">切换自己/对方</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-container" id="chatContainer">
+                    <div class="empty-state">
+                        <p>请选择聊天记录文件</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -363,8 +469,7 @@
                             <ul>
                                 <li><code>BASE_URL</code>: API的基础URL</li>
                                 <li><code>MY_USER_ID</code>: 你的用户ID</li>
-                                <li><code>USER_TO_ID</code>:
-                                    对方用户ID,要注意的是,你不要知道对方的实际身份码是多少,只需要知道你能看到的ID(实际上是实际身份码经过MD5密后的结果)</li>
+                                <li><code>USER_TO_ID</code>: 对方用户ID</li>
                                 <li><code>COOKIE_STR</code>:
                                     从浏览器获取的Cookie字符串</li>
                             </ul>
@@ -378,10 +483,12 @@
                     <h3>Python代码</h3>
                     <button id="copyCodeBtn" class="copy-btn">复制代码</button>
                     <div class="code-block" id="pythonCode">
+                        from urllib.parse import urlparse, parse_qs
                         import requests
                         import json
                         from datetime import datetime
                         import os
+                        import re
 
                         class ChatHistoryFetcher:
                         def __init__(self, base_url, my_user_id, user_to_id,
@@ -392,6 +499,8 @@
                         self.cookies = cookies or {}
                         self.all_messages = []
                         self.session = requests.Session()
+                        self.other_party_nickname = None
+                        self.my_nickname = None
 
                         def fetch_history(self, first_tid=0, is_first=1):
                         """获取聊天记录"""
@@ -454,28 +563,87 @@
                         messages = result["contents_list"]
                         self.all_messages.extend(messages)
 
+                        # 更新first_tid为当前页面最后一条记录的Tid
                         first_tid = messages[-1]["Tid"]
-                        is_first = 0
+                        is_first = 0 # 第一次之后设置为0
                         page += 1
 
-                        # 延迟
+                        # 添加延迟避免请求过快
                         # time.sleep(0.5)
 
+                        # 按时间顺序排序（从早到晚）
+                        if self.all_messages:
                         self.all_messages.sort(key=lambda x: datetime.strptime(
                         x["time"], "%Y-%m-%d %H:%M:%S.%f"))
+
+                        # 获取双方昵称
+                        self.my_nickname = self.all_messages[0].get(
+                        "nickname") or self.all_messages[0].get("tonickname")
+                        self.other_party_nickname = self.all_messages[0].get(
+                        "tonickname") or self.all_messages[0].get("nickname")
 
                         print(f"共获取 {len(self.all_messages)} 条记录")
                         return self.all_messages
 
+                        def generate_filename(self, extension):
+                        """生成包含摘要的文件名"""
+                        # 获取第一条消息内容作为摘要
+                        first_message_preview = "无消息内容"
+                        if self.all_messages:
+                        first_content = self.all_messages[0].get("content", "")
+                        # 清理内容，移除特殊字符
+                        cleaned_content = re.sub(r'[\\/*?:"<>|]', "",
+                        first_content)
+                        first_message_preview = cleaned_content[:20] + "..." if
+                        len(
+                        cleaned_content) > 20 else cleaned_content
+
+                        # 获取当前时间
+                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+                        # 使用双方ID和昵称创建文件名
+                        my_id_short = self.my_user_id[:8] if self.my_user_id
+                        else "unknown"
+                        other_id_short = self.user_to_id[:8] if self.user_to_id
+                        else "unknown"
+
+                        my_nickname_short = re.sub(
+                        r'[\\/*?:"<>|]', "", self.my_nickname or "我")[:10]
+                        other_nickname_short = re.sub(
+                        r'[\\/*?:"<>|]', "", self.other_party_nickname or
+                        "对方")[:10]
+
+                        filename =
+                        f"chat_{my_id_short}_{other_id_short}_{my_nickname_short}_{other_nickname_short}_{first_message_preview}_{timestamp}.{extension}"
+
+                        return filename
+
                         def export_to_json(self, filename=None):
                         """导出为JSON文件"""
                         if not filename:
-                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                        filename = f"chat_history_{timestamp}.json"
+                        filename = self.generate_filename("json")
+
+                        # 添加元数据
+                        export_data = {
+                        "metadata": {
+                        "export_time": datetime.now().isoformat(),
+                        "my_user_id": self.my_user_id,
+                        "user_to_id": self.user_to_id,
+                        "my_nickname": self.my_nickname,
+                        "other_party_nickname": self.other_party_nickname,
+                        "total_messages": len(self.all_messages),
+                        "time_range": {
+                        "start": self.all_messages[0]["time"] if
+                        self.all_messages else None,
+                        "end": self.all_messages[-1]["time"] if
+                        self.all_messages else None
+                        }
+                        },
+                        "messages": self.all_messages
+                        }
 
                         with open(filename, 'w', encoding='utf-8') as f:
-                        json.dump(self.all_messages, f, ensure_ascii=False,
-                        indent=2)
+                        json.dump(export_data, f, ensure_ascii=False, indent=2)
 
                         print(f"已导出JSON文件: {filename}")
                         return filename
@@ -483,31 +651,63 @@
                         def export_to_text(self, filename=None):
                         """导出为文本文件"""
                         if not filename:
-                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                        filename = f"chat_history_{timestamp}.txt"
+                        filename = self.generate_filename("txt")
 
                         with open(filename, 'w', encoding='utf-8') as f:
+                        # 写入元数据
+                        f.write("聊天记录导出\n")
+                        f.write("=" * 50 + "\n")
+                        f.write(f"导出时间:
+                        {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                        f.write(f"我的ID: {self.my_user_id}\n")
+                        f.write(f"我的昵称: {self.my_nickname or '未知'}\n")
+                        f.write(f"对方ID: {self.user_to_id}\n")
+                        f.write(f"对方昵称: {self.other_party_nickname or '未知'}\n")
+                        f.write(f"消息总数: {len(self.all_messages)}\n")
+                        if self.all_messages:
+                        f.write(
+                        f"时间范围: {self.all_messages[0]['time']} 至
+                        {self.all_messages[-1]['time']}\n")
+                        f.write("=" * 50 + "\n\n")
+
+                        # 写入消息内容
                         for msg in self.all_messages:
-                        # 格式化每条消息
                         time_str = msg["time"]
                         sender = msg["nickname"]
                         receiver = msg["tonickname"]
                         content = msg["content"]
-
                         f.write(f"[{time_str}] {sender} -> {receiver}:
                         {content}\n")
 
                         print(f"已导出文本文件: {filename}")
                         return filename
 
-                        if __name__ == "__main__":
-                        # 配置参数
-                        BASE_URL = "http://45.119.55.75:668"
-                        MY_USER_ID = "277b7dbfa44f4314af65ce99154761a0" #
-                        替换为你的用户ID
-                        USER_TO_ID = "deff5f25adea714203f520dc0169dfd6" #
-                        替换为对方用户ID
+                        def extract_user_id(url):
+                        """
+                        从URL中提取touserid参数的值
+                        """
+                        parsed_url = urlparse(url)
+                        query_params = parse_qs(parsed_url.query)
+                        return query_params.get('touserid', [None])[0]
 
+                        def load_my_user_id():
+                        """从文件加载我的用户ID"""
+                        if os.path.exists("my_user_id.txt"):
+                        try:
+                        with open("my_user_id.txt", "r", encoding="utf-8") as f:
+                        return f.read().strip()
+                        except:
+                        pass
+                        return None
+
+                        def save_my_user_id(user_id):
+                        """保存我的用户ID到文件"""
+                        with open("my_user_id.txt", "w", encoding="utf-8") as f:
+                        f.write(user_id)
+
+                        def get_cookies():
+                        """获取cookies"""
+                        # 从浏览器获取的Cookie字符串
                         COOKIE_STR = """
                         room_name_random=%E5%85%AC%E5%85%B1%E5%9C%BA%E6%89%80;
                         room_psw_random=;
@@ -519,21 +719,69 @@
                         colorpicker=%23414550;
                         isSound=-1;
                         randomVipCode=;
-                        user_id=YOURID;
-                        user_nickname_random=ss
+                        user_id=fe077f0b39cb4c0ebac68a35e7fc16b6;
+                        user_nickname_random=%E6%83%B3%F0%9F%90%A2%E9%AB%98%E4%B8%AD%E5%A5%B3%E5%8F%8B%E5%AE%B6%E7%AE%A1%E4%B8%A5
                         """
 
+                        # 将Cookie字符串转换为字典
                         cookies = {}
                         for cookie in COOKIE_STR.strip().split(';'):
                         if '=' in cookie:
                         key, value = cookie.strip().split('=', 1)
                         cookies[key] = value
 
+                        return cookies
+
+                        # 使用示例
+                        if __name__ == "__main__":
+                        # 配置参数
+                        BASE_URL = "http://45.119.55.75:668"
+
+                        # 尝试加载已保存的用户ID
+                        MY_USER_ID = load_my_user_id()
+
+                        # 如果没有保存的用户ID，则要求用户输入
+                        if not MY_USER_ID:
+                        MY_USER_ID = input("请输入您的用户ID: ").strip()
+                        save_my_user_id(MY_USER_ID)
+                        print(f"已保存您的用户ID: {MY_USER_ID}")
+                        else:
+                        print(f"使用已保存的用户ID: {MY_USER_ID}")
+                        change = input("是否要更改用户ID? (y/N): ").strip().lower()
+                        if change == 'y':
+                        MY_USER_ID = input("请输入新的用户ID: ").strip()
+                        save_my_user_id(MY_USER_ID)
+                        print(f"已更新您的用户ID: {MY_USER_ID}")
+
+                        # 获取cookies
+                        cookies = get_cookies()
+
+                        # 循环处理多个聊天链接
+                        while True:
+                        print("\n" + "="*50)
+                        url = input("请输入聊天链接(直接回车退出): ").strip()
+
+                        if not url:
+                        print("退出程序")
+                        break
+
+                        USER_TO_ID = extract_user_id(url)
+
+                        if not USER_TO_ID:
+                        print("无法从链接中提取用户ID，请检查链接格式")
+                        continue
+
+                        print(f"提取到对方用户ID: {USER_TO_ID}")
+
+                        # 创建抓取器实例
                         fetcher = ChatHistoryFetcher(BASE_URL, MY_USER_ID,
                         USER_TO_ID, cookies)
+
+                        # 获取所有聊天记录
                         messages = fetcher.get_all_messages()
 
                         if messages:
+                        # 导出文件
                         json_file = fetcher.export_to_json()
                         text_file = fetcher.export_to_text()
 
@@ -542,6 +790,13 @@
                         print(f"文本文件: {os.path.abspath(text_file)}")
                         else:
                         print("未能获取到聊天记录，请检查参数和Cookie")
+
+                        # 询问是否继续
+                        continue_choice =
+                        input("是否继续处理其他链接? (Y/n): ").strip().lower()
+                        if continue_choice == 'n':
+                        break
+
                     </div>
                 </div>
             </div>
@@ -550,7 +805,6 @@
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const fileInput = document.getElementById('fileInput');
-            const uploadBtn = document.getElementById('uploadBtn');
             const howToBtn = document.getElementById('howToBtn');
             const chatContainer = document.getElementById('chatContainer');
             const searchInput = document.getElementById('searchInput');
@@ -559,40 +813,113 @@
             const howToModal = document.getElementById('howToModal');
             const closeModal = document.querySelector('.close-modal');
             const copyCodeBtn = document.getElementById('copyCodeBtn');
+            const fileList = document.getElementById('fileList');
+            const folderInfo = document.getElementById('folderInfo');
             
             let chatData = [];
             let currentUserId = '';
             let otherUserId = '';
             let currentFilter = 'all';
             let perspectiveSwitched = false;
+            let currentFileIndex = -1;
+            let files = [];
             
-            // 上传文件处理
-            uploadBtn.addEventListener('click', function() {
-                if (!fileInput.files.length) {
-                    alert('请选择文件');
+            // 文件夹选择处理
+            fileInput.addEventListener('change', function(event) {
+                files = Array.from(event.target.files).filter(file => 
+                    file.name.toLowerCase().endsWith('.json')
+                );
+                
+                if (files.length === 0) {
+                    folderInfo.textContent = '未找到JSON文件';
+                    fileList.innerHTML = '<li class="empty-state">未找到JSON文件</li>';
                     return;
                 }
                 
-                const file = fileInput.files[0];
+                // 更新文件夹信息
+                const path = fileInput.files[0].webkitRelativePath;
+                const folderName = path.split('/')[0];
+                folderInfo.textContent = `文件夹: ${folderName} (${files.length} 个文件)`;
+                
+                // 清空文件列表
+                fileList.innerHTML = '';
+                
+                // 添加文件到列表
+                files.forEach((file, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'file-item';
+                    li.dataset.index = index;
+                    
+                    const fileNameDiv = document.createElement('div');
+                    fileNameDiv.className = 'file-name';
+                    fileNameDiv.textContent = file.name;
+                    
+                    const fileInfoDiv = document.createElement('div');
+                    fileInfoDiv.className = 'file-info';
+                    fileInfoDiv.innerHTML = `
+                        <span>${formatFileSize(file.size)}</span>
+                        <span>${new Date(file.lastModified).toLocaleDateString()}</span>
+                    `;
+                    
+                    li.appendChild(fileNameDiv);
+                    li.appendChild(fileInfoDiv);
+                    
+                    li.addEventListener('click', function() {
+                        // 移除之前选中的样式
+                        document.querySelectorAll('.file-item.active').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        
+                        // 添加选中样式
+                        this.classList.add('active');
+                        
+                        // 加载文件
+                        loadFile(index);
+                    });
+                    
+                    fileList.appendChild(li);
+                });
+                
+                // 自动加载第一个文件
+                if (files.length > 0) {
+                    loadFile(0);
+                    fileList.children[0].classList.add('active');
+                }
+            });
+            
+            // 加载文件函数
+            function loadFile(index) {
+                currentFileIndex = index;
+                const file = files[index];
                 const reader = new FileReader();
                 
                 reader.onload = function(e) {
                     try {
                         const data = JSON.parse(e.target.result);
-                        if (Array.isArray(data)) {
-                            chatData = data;
-                            // 尝试从第一条消息推断当前用户ID
-                            if (chatData.length > 0) {
-                                // 假设第一条消息的发送者就是当前用户
+                        
+                        // 兼容新旧两种格式
+                        if (data.metadata && data.messages) {
+                            // 新格式：包含metadata和messages
+                            chatData = data.messages;
+                            // if (data.metadata.my_user_id) {
+                            //     currentUserId = data.metadata.my_user_id;
+                            // } else if (chatData.length > 0) {
+                                // 从第一条消息推断当前用户ID
                                 currentUserId = chatData[0].id;
-                                // 获取对方用户ID
-                                otherUserId = chatData[0].toid;
+                            // }
+                        } else if (Array.isArray(data)) {
+                            // 旧格式：直接是消息数组
+                            chatData = data;
+                            if (chatData.length > 0) {
+                                // 从第一条消息推断当前用户ID
+                                currentUserId = chatData[0].id;
                             }
-                            perspectiveSwitched = false;
-                            renderChat();
                         } else {
                             throw new Error('无效的JSON格式');
                         }
+                        
+                        perspectiveSwitched = false;
+                        renderChat();
                     } catch (error) {
                         alert('文件解析错误: ' + error.message);
                     }
@@ -603,7 +930,14 @@
                 };
                 
                 reader.readAsText(file);
-            });
+            }
+            
+            // 格式化文件大小
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+                else return (bytes / 1048576).toFixed(1) + ' MB';
+            }
             
             // 搜索功能
             searchInput.addEventListener('input', function() {
@@ -668,7 +1002,7 @@
             // 渲染聊天记录
             function renderChat() {
                 if (chatData.length === 0) {
-                    chatContainer.innerHTML = '<div class="empty-state"><p>请上传JSON格式的聊天记录文件</p></div>';
+                    chatContainer.innerHTML = '<div class="empty-state"><p>请选择聊天记录文件</p></div>';
                     return;
                 }
                 
@@ -736,8 +1070,8 @@
                 perspectiveHint.innerHTML = `<p>当前视角: ${perspectiveSwitched ? '对方' : '自己'}</p>`;
                 chatContainer.insertBefore(perspectiveHint, chatContainer.firstChild);
                 
-                // 滚动到底部
-                chatContainer.scrollTop = chatContainer.scrollHeight;
+                // 滚动到顶部（显示第一条消息）
+                chatContainer.scrollTop = 0;
             }
             
             // 格式化时间
